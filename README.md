@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ascii — Particle Animation Studio
 
-## Getting Started
+> **Live:** [ascii.devsloka.in](https://ascii.devsloka.in)  
+> **Built by:** [devsloka.in](https://devsloka.in) × [priyanshukr.com](https://priyanshukr.com)
 
-First, run the development server:
+Transform any SVG into a living, interactive particle animation — entirely in your browser. No account, no install, no build step on the user's end.
+
+---
+
+## What it does
+
+1. **Upload any SVG** — paste raw markup or drag-and-drop a `.svg` file. The engine rasterises the paths and maps every filled pixel into a precise 2D point cloud.
+2. **Tune real-time physics** — adjust particle size, mouse repulsion radius, spring return speed, and damping. Every change reflects live in the WebGL canvas.
+3. **Export clean code** — click *Export Code* to receive a fully self-contained React + TypeScript component with your exact config baked in, ready to drop into any project.
+
+---
+
+## Tech stack
+
+| Layer | Library |
+| --- | --- |
+| Framework | Next.js 16 (App Router) |
+| 3D / WebGL | Three.js + React Three Fiber |
+| Helpers | @react-three/drei |
+| UI | shadcn/ui (Tailwind v4) |
+| Animations | GSAP + ScrollTrigger |
+| Language | TypeScript |
+| Runtime | Bun |
+
+---
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+# Install dependencies
+bun install
+
+# Start the dev server
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```text
+app/
+  page.tsx          # Landing page
+  playground/
+    page.tsx        # Interactive studio
+components/
+  LogoParticles.tsx # 2D canvas particle logo for navbar
+  Marquee.tsx       # Infinite horizontal ticker
+  Navbar.tsx        # Site header
+  ParticleField.tsx # WebGL particle shader (Three.js)
+  SvgParticleCanvas.tsx  # R3F canvas wrapper
+  SvgUploader.tsx   # SVG input component
+  ControlPanel.tsx  # Physics sliders
+  CodeExportDialog.tsx   # Code export modal
+lib/
+  svgToPoints.ts    # SVG → 2D point cloud sampler
+  generateCode.ts   # Component code generator
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT © [devsloka.in](https://devsloka.in) / [priyanshukr.com](https://priyanshukr.com)

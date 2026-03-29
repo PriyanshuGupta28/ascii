@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^node -e \"const l = require\\('lucide-react'\\); const keys = Object\\.keys\\(l\\)\\.filter\\(k => k\\.toLowerCase\\(\\)\\.includes\\('github'\\)\\); console\\.log\\(keys\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
